@@ -1,0 +1,75 @@
+EDITED BY
+Peter Huynh
+Spring 2016
+
+CS3753 (Operating Systems)
+Spring 2012
+University of Colorado Boulder
+Programming Assignment 5
+A FUSE Encrypted File System
+Public Code
+
+By Andy Sayler - 2012
+<www.andysayler.com>
+
+Inspired by work from Chris Wailes - 2010
+<chris.wailes@gmail.com>
+
+With help from:
+Junho Ahn - 2012
+
+Various files adopted from other exiting work.
+See file comments for specific details and references.
+
+---Dependencies---
+fuse-utils
+openssl
+attr
+attr-dev
+libfuse-dev
+libssl1.0.0 or libssl0.9.8
+libssl-dev
+
+Note: To use extended attributes (xattr) on EXT filesystems,
+      you must add the 'user_xattr' mount option to the
+      mount options of any mounts on which you intend to use 
+      extended attributes. Failure to so may result in an error
+      when trying to set, get, or remove xattr values.
+
+---Files---
+Makefile         - GNU makefile to build all relevant code
+README           - This file
+fusexmp.c        - Basic FUSE mirrored filesystem example (mirrors /)
+aes-crypt.h      - Basic AES file encryption library interface
+aes-crypt.c      - Basic AES file encryption library implementation
+
+---Executables---
+pa5-encfs      - Mounting executable for root (\) mirror FUSE filesystem example
+
+---Examples---
+
+***Building***
+
+Build All:
+ make
+
+Clean:
+ make clean
+
+***FUSE Examples***
+
+Make a directory
+ mkdir <Folder>
+
+Mount fusexmp on existing directories and list (ls) mirrored root directory (/)
+ ./pa5-encfs <Encryption Key> <Mirror Directory> <Mount Directory>
+ ls <Mount Directory>
+
+Write into a file, or create and write into a file
+ echo "<INPUT>" > <File Path>
+
+Read a file
+ cat <File Path>
+
+Unmount a FUSE filesystem
+ fusermount -u <Mount Directory>

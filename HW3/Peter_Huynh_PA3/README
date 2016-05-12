@@ -1,0 +1,44 @@
+CS3753 (Operating Systems)
+Spring 2016
+University of Colorado Boulder
+Programming Assignment 3
+Part of Assignment 3 of:
+Peter Huynh <Peter.Huynh@colorado.edu> - 2016
+
+---Original-Credits---
+CS3753 (Operating Systems)
+Spring 2012
+University of Colorado Boulder
+Programming Assignment 2
+Public Code
+
+By Andy Sayler - 2012
+http://www.andysayler.com
+
+With help from:
+Junho Ahn - 2012
+
+Adopted from previous code by
+ Chris Wailes <chris.wailes@gmail.com> - 2010
+ Wei-Te Chen <weite.chen@colorado.edu> - 2011
+ Blaise Barney - pthread-hello.c
+
+---Folders---
+input - names*.txt input files
+Peter_Huynh_PA3 - Assignment description and documentation
+
+---Executables---
+multi-lookup - A multi-threaded DNS query-er
+
+---Examples---
+Build:
+ make
+
+Clean:
+ make clean
+
+Multi-threaded Lookup DNS info for all names files in input folder:
+ ./multi-lookup input/names*.txt results.txt
+
+Check for memory leaks in multi-lookup while running all name files:
+ valgrind ./multi-lookup input/names*.txt results.txt
